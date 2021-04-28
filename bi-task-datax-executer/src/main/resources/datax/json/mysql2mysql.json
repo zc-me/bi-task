@@ -1,0 +1,68 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel": 3
+      },
+      "errorLimit": {
+        "record": 0,
+        "percentage": 0.02
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "practice",
+            "password": "practice",
+            "column": [
+              "user_id",
+              "user_name",
+              "user_password",
+              "create_date"
+            ],
+            "connection": [
+              {
+                "table": [
+                  "user"
+                ],
+                "jdbcUrl": [
+                  "jdbc:mysql://localhost:3306/practicedb?useUnicode=true&characterEncoding=utf-8"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "mysqlwriter",
+          "parameter": {
+            "writeMode": "insert",
+            "username": "practice",
+            "password": "practice",
+            "column": [
+              "user_id_bak",
+              "user_name_bak",
+              "user_password_bak",
+              "create_date_bak"
+            ],
+            "session": [
+              "set session sql_mode='ANSI'"
+            ],
+            "preSql": [
+              "delete from user_bak"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:mysql://localhost:3306/practicedb?useUnicode=true&characterEncoding=utf-8",
+                "table": [
+                  "user_bak"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
