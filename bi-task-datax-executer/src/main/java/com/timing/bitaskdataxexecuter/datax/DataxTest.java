@@ -21,7 +21,7 @@ public class DataxTest {
             System.setProperty("now", LocalTime.now().toString());
 
             //自己的json文件路径
-            ClassPathResource resource2 = new ClassPathResource("datax/json/mysql2mysql.json");
+            ClassPathResource resource2 = new ClassPathResource("datax/json/oracle2oracle.json");
             String path2 = resource2.getFile().getAbsolutePath();
             String[] dataxArgs = {"-job", path2, "-mode", "standalone", "-jobid", "-1"};
             Engine.entry(dataxArgs);
