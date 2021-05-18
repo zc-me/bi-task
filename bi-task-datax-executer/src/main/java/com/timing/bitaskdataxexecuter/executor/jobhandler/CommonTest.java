@@ -27,7 +27,7 @@ public class CommonTest {
     public void executorDataxTest() throws Exception {
         // datax数据同步测试 start
         DataxTest dataxTest = new DataxTest();
-        dataxTest.syncMysqlData2Mysql();
+        dataxTest.syncOracleData2Mysql();
         // datax数据同步测试 end
     }
 
