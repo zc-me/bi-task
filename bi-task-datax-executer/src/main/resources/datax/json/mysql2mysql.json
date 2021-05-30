@@ -14,21 +14,20 @@
         "reader": {
           "name": "mysqlreader",
           "parameter": {
-            "username": "practice",
-            "password": "practice",
+            "username": "bitask",
+            "password": "bitask-123",
             "column": [
-              "user_id",
-              "user_name",
-              "user_password",
-              "create_date"
+              "id",
+              "username",
+              "password"
             ],
             "connection": [
               {
                 "table": [
-                  "user"
+                  "user_1"
                 ],
                 "jdbcUrl": [
-                  "jdbc:mysql://localhost:3306/practicedb?useUnicode=true&characterEncoding=utf-8"
+                  "jdbc:mysql://localhost:3306/bi_task?useUnicode=true&characterEncoding=utf-8"
                 ]
               }
             ]
@@ -38,25 +37,24 @@
           "name": "mysqlwriter",
           "parameter": {
             "writeMode": "insert",
-            "username": "practice",
-            "password": "practice",
+            "username": "bitask",
+            "password": "bitask-123",
             "column": [
-              "user_id_bak",
-              "user_name_bak",
-              "user_password_bak",
-              "create_date_bak"
+              "id",
+              "username",
+              "password"
             ],
             "session": [
               "set session sql_mode='ANSI'"
             ],
             "preSql": [
-              "delete from user_bak"
+              "delete from user_2"
             ],
             "connection": [
               {
-                "jdbcUrl": "jdbc:mysql://localhost:3306/practicedb?useUnicode=true&characterEncoding=utf-8",
+                "jdbcUrl": "jdbc:mysql://localhost:3306/bi_task?useUnicode=true&characterEncoding=utf-8",
                 "table": [
-                  "user_bak"
+                  "user_2"
                 ]
               }
             ]

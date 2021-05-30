@@ -3,6 +3,8 @@ package com.timing.bitaskdataxexecuter.datax;
 import com.alibaba.datax.core.Engine;
 import com.alibaba.datax.core.util.ExceptionTracker;
 import com.timing.bitaskcore.context.XxlJobHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 
 import java.time.LocalTime;
@@ -10,6 +12,8 @@ import java.time.LocalTime;
 public class DataxTest {
 
     public void syncMysqlData2Mysql() {
+        Logger logger = LoggerFactory.getLogger(DataxTest.class);
+
         XxlJobHelper.log("数据同步开始！！！");
 
         try {
@@ -26,6 +30,7 @@ public class DataxTest {
             String[] dataxArgs = {"-job", path2, "-mode", "standalone", "-jobid", "-1"};
             Engine.entry(dataxArgs);
         } catch (Throwable throwable) {
+            logger.error("数据同步异常:", throwable.getMessage());
             XxlJobHelper.log("数据同步异常：", ExceptionTracker.trace(throwable));
         }
 
