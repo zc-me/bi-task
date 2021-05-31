@@ -14,20 +14,25 @@
         "reader": {
           "name": "mysqlreader",
           "parameter": {
-            "username": "bitask",
-            "password": "bitask-123",
+            "username": "fuli_user",
+            "password": "&DR%sHSZM2yC4Faf",
             "column": [
-              "id",
-              "username",
-              "password"
+              "HOTEL_CODE",
+              "LFSDATUM",
+              "ARTNUMBER",
+              "ARTNAME",
+              "LFPMENGE",
+              "LFPEKP",
+              "VPKNAME",
+              "SGRNAME"
             ],
             "connection": [
               {
                 "table": [
-                  "user_1"
+                  "MC_MCBI"
                 ],
                 "jdbcUrl": [
-                  "jdbc:mysql://localhost:3306/bi_task?useUnicode=true&characterEncoding=utf-8"
+                  "jdbc:mysql://172.20.219.12:3306/FULI?useUnicode=true&characterEncoding=utf-8"
                 ]
               }
             ]
@@ -40,21 +45,26 @@
             "username": "bitask",
             "password": "bitask-123",
             "column": [
-              "id",
-              "username",
-              "password"
+              "HOTEL_CODE",
+              "LFSDATUM",
+              "ARTNUMBER",
+              "ARTNAME",
+              "LFPMENGE",
+              "LFPEKP",
+              "VPKNAME",
+              "SGRNAME"
             ],
             "session": [
               "set session sql_mode='ANSI'"
             ],
             "preSql": [
-              "delete from user_2"
+              "delete from MC_MCBI"
             ],
             "connection": [
               {
                 "jdbcUrl": "jdbc:mysql://localhost:3306/bi_task?useUnicode=true&characterEncoding=utf-8",
                 "table": [
-                  "user_2"
+                  "MC_MCBI"
                 ]
               }
             ]
