@@ -17,7 +17,7 @@ public class DataxSyncTaskSVImpl implements DataxSyncTaskSV {
     /**
      * 这个是存放整个datax相关配置的路径，"/datax"的上级目录
      */
-    private static final String DATAX_PATH = "C:/SELF-Project/PrivateJob/analyze-service/target/classes";
+    private static final String DATAX_PATH = "/home/bi/bi-task/config";
 
     private static final Logger logger = LoggerFactory.getLogger(DataxSyncTaskSVImpl.class);
 
