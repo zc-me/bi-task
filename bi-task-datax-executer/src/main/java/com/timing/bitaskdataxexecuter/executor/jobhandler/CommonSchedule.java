@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class CommonTest {
+public class CommonSchedule {
 
     @XxlJob("executorTest")
     public void executorTest() throws Exception {
@@ -23,8 +23,8 @@ public class CommonTest {
         // 任务调度及参数获取测试 end
     }
 
-    @XxlJob("executorDataxTest")
-    public void executorDataxTest() throws Exception {
+    @XxlJob("executorDataxSync")
+    public void executorDataxSync() throws Exception {
         // datax数据同步测试 start
         DataxTest dataxTest = new DataxTest();
         dataxTest.syncMysqlData2Mysql();

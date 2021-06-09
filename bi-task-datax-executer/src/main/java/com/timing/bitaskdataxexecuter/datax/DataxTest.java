@@ -18,18 +18,20 @@ public class DataxTest {
 
         try {
             //datax编译后的目录
-            String path1 = "/home/bi/BI-TASK/executer/config/datax/target/conf/core.json";
+            ClassPathResource resource1 = new ClassPathResource("datax/target/conf/core.json");
+            String path1 = resource1.getFile().getAbsolutePath();
             path1 = path1.substring(0, path1.indexOf("core.json") - 6);
             System.setProperty("datax.home", path1);
             System.setProperty("now", LocalTime.now().toString());
 
             //自己的json文件路径
-            String path2 = "/home/bi/BI-TASK/executer/config/datax/json/mysql2mysql.json";
+            ClassPathResource resource2 = new ClassPathResource("datax/json/MC_MCBI.json");
+            String path2 = resource2.getFile().getAbsolutePath();
             String[] dataxArgs = {"-job", path2, "-mode", "standalone", "-jobid", "-1"};
             Engine.entry(dataxArgs);
         } catch (Throwable throwable) {
-            logger.error("数据同步异常:", throwable);
-            XxlJobHelper.log("数据同步异常：", throwable);
+            logger.error("数据同步异常:", throwable.getMessage());
+            XxlJobHelper.log("数据同步异常：", ExceptionTracker.trace(throwable));
         }
 
         XxlJobHelper.log("数据同步结束！！！");
