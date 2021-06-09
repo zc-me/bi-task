@@ -32,7 +32,7 @@
                   "MC_MCBI"
                 ],
                 "jdbcUrl": [
-                  "jdbc:mysql://172.20.219.12:3306/FULI?useUnicode=true&characterEncoding=utf-8"
+                  "jdbc:mysql://172.20.219.12:3306/fuli?useUnicode=true&characterEncoding=utf-8"
                 ]
               }
             ]
@@ -42,8 +42,8 @@
           "name": "mysqlwriter",
           "parameter": {
             "writeMode": "insert",
-            "username": "bitask",
-            "password": "bitask-123",
+            "username": "analyze",
+            "password": "Analyze-123",
             "column": [
               "HOTEL_CODE",
               "LFSDATUM",
@@ -62,7 +62,7 @@
             ],
             "connection": [
               {
-                "jdbcUrl": "jdbc:mysql://localhost:3306/bi_task?useUnicode=true&characterEncoding=utf-8",
+                "jdbcUrl": "jdbc:mysql://localhost:3306/analyze?useUnicode=true&characterEncoding=utf-8",
                 "table": [
                   "MC_MCBI"
                 ]

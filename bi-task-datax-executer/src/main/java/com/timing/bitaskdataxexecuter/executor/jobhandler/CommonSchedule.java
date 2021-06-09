@@ -2,8 +2,9 @@ package com.timing.bitaskdataxexecuter.executor.jobhandler;
 
 import com.timing.bitaskcore.context.XxlJobHelper;
 import com.timing.bitaskcore.handler.annotation.XxlJob;
-import com.timing.bitaskdataxexecuter.datax.DataxTest;
 import com.timing.bitaskdataxexecuter.datax.ExecutorTest;
+import com.timing.bitaskdataxexecuter.datax.impl.DataxSyncTaskSVImpl;
+import com.timing.bitaskdataxexecuter.datax.interfaces.DataxSyncTaskSV;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -26,8 +27,8 @@ public class CommonSchedule {
     @XxlJob("executorDataxSync")
     public void executorDataxSync() throws Exception {
         // datax数据同步测试 start
-        DataxTest dataxTest = new DataxTest();
-        dataxTest.syncMysqlData2Mysql();
+        DataxSyncTaskSV dataxSyncTaskSV = new DataxSyncTaskSVImpl();
+        dataxSyncTaskSV.syncMysqlData2Mysql();
         // datax数据同步测试 end
     }
 
