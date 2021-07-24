@@ -2,6 +2,7 @@ package com.timing.bitaskdataxexecuter.datax.impl;
 
 import com.alibaba.datax.core.Engine;
 import com.timing.bitaskdataxexecuter.datax.interfaces.DataxSyncTaskSV;
+import com.timing.bitaskdataxexecuter.http.HttpUtils;
 import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,5 +55,8 @@ public class DataxSyncTaskSVImpl implements DataxSyncTaskSV {
             logger.error("数据同步异常:", throwable);
         }
         logger.error("数据同步结束！！！");
+
+        // 数据采集完成后进行汇总
+        HttpUtils.callInterfaceByHttp("/summary/insertHotelProcurementSummary", new HashMap());
     }
 }
