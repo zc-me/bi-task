@@ -56,7 +56,13 @@ public class DataxSyncTaskSVImpl implements DataxSyncTaskSV {
         }
         logger.error("数据同步结束！！！");
 
-        // 数据采集完成后进行汇总
-        HttpUtils.callInterfaceByHttp("/summary/insertHotelProcurementSummary", new HashMap());
+        // 数据采集完成后进行汇总，如果发生异常直接将异常吃掉
+        try {
+            logger.error("采购汇总开始！！！");
+            HttpUtils.callInterfaceByHttp("/summary/insertHotelProcurementSummary", new HashMap());
+            logger.error("采购汇总完成！！！");
+        } catch (Exception e) {
+            logger.error("采购额汇总出错，原因：", e);
+        }
     }
 }
